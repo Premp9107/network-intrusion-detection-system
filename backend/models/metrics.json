@@ -1,0 +1,776 @@
+{
+  "trained_at": "2026-11-06T12:49:30.284471+00:00",
+  "training_source": "sample_traffic.csv",
+  "training_source_kind": "synthetic_demonstration",
+  "random_state": 42,
+  "test_size": 0.25,
+  "n_rows": 1200,
+  "n_train": 900,
+  "n_test": 300,
+  "feature_columns": [
+    "Destination Port",
+    "Flow Duration",
+    "Total Fwd Packets",
+    "Total Backward Packets",
+    "Total Length of Fwd Packets",
+    "Total Length of Bwd Packets",
+    "Fwd Packet Length Mean",
+    "Bwd Packet Length Mean",
+    "Flow Bytes/s",
+    "Flow Packets/s",
+    "Flow IAT Mean",
+    "Fwd IAT Mean",
+    "Bwd IAT Mean",
+    "Fwd Packets/s",
+    "Bwd Packets/s",
+    "Packet Length Mean",
+    "Packet Length Std",
+    "FIN Flag Count",
+    "SYN Flag Count",
+    "RST Flag Count",
+    "ACK Flag Count",
+    "Down/Up Ratio",
+    "Average Packet Size",
+    "Init_Win_bytes_forward",
+    "Init_Win_bytes_backward",
+    "Active Mean",
+    "Idle Mean"
+  ],
+  "classes": [
+    "BENIGN",
+    "Brute Force",
+    "DDoS",
+    "DoS",
+    "PortScan",
+    "Web Attack"
+  ],
+  "selected_model": "random_forest",
+  "selection_rule": "Highest held-out macro F1. Equal scores keep random forest.",
+  "model_parameters": {
+    "random_forest": {
+      "n_estimators": 40,
+      "max_depth": 8,
+      "min_samples_leaf": 3,
+      "random_state": 42
+    },
+    "logistic_regression": {
+      "max_iter": 800,
+      "random_state": 42
+    }
+  },
+  "models": {
+    "random_forest": {
+      "test": {
+        "accuracy": 0.866667,
+        "precision_macro": 0.882528,
+        "recall_macro": 0.866667,
+        "f1_macro": 0.871015,
+        "precision_weighted": 0.882528,
+        "recall_weighted": 0.866667,
+        "f1_weighted": 0.871015,
+        "classification_report": {
+          "BENIGN": {
+            "precision": 0.612903,
+            "recall": 0.76,
+            "f1-score": 0.678571,
+            "support": 50.0
+          },
+          "Brute Force": {
+            "precision": 0.921569,
+            "recall": 0.94,
+            "f1-score": 0.930693,
+            "support": 50.0
+          },
+          "DDoS": {
+            "precision": 0.979167,
+            "recall": 0.94,
+            "f1-score": 0.959184,
+            "support": 50.0
+          },
+          "DoS": {
+            "precision": 0.97619,
+            "recall": 0.82,
+            "f1-score": 0.891304,
+            "support": 50.0
+          },
+          "PortScan": {
+            "precision": 0.851852,
+            "recall": 0.92,
+            "f1-score": 0.884615,
+            "support": 50.0
+          },
+          "Web Attack": {
+            "precision": 0.953488,
+            "recall": 0.82,
+            "f1-score": 0.88172,
+            "support": 50.0
+          },
+          "accuracy": 0.866667,
+          "macro avg": {
+            "precision": 0.882528,
+            "recall": 0.866667,
+            "f1-score": 0.871015,
+            "support": 300.0
+          },
+          "weighted avg": {
+            "precision": 0.882528,
+            "recall": 0.866667,
+            "f1-score": 0.871015,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            38,
+            4,
+            1,
+            1,
+            5,
+            1
+          ],
+          [
+            3,
+            47,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            47,
+            0,
+            1,
+            0
+          ],
+          [
+            7,
+            0,
+            0,
+            41,
+            1,
+            1
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            46,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            1,
+            41
+          ]
+        ],
+        "confusion_labels": [
+          "BENIGN",
+          "Brute Force",
+          "DDoS",
+          "DoS",
+          "PortScan",
+          "Web Attack"
+        ]
+      },
+      "train": {
+        "accuracy": 0.928889,
+        "precision_macro": 0.938753,
+        "recall_macro": 0.928889,
+        "f1_macro": 0.93134,
+        "precision_weighted": 0.938753,
+        "recall_weighted": 0.928889,
+        "f1_weighted": 0.93134,
+        "classification_report": {
+          "BENIGN": {
+            "precision": 0.751323,
+            "recall": 0.946667,
+            "f1-score": 0.837758,
+            "support": 150.0
+          },
+          "Brute Force": {
+            "precision": 0.985714,
+            "recall": 0.92,
+            "f1-score": 0.951724,
+            "support": 150.0
+          },
+          "DDoS": {
+            "precision": 0.985714,
+            "recall": 0.92,
+            "f1-score": 0.951724,
+            "support": 150.0
+          },
+          "DoS": {
+            "precision": 0.985915,
+            "recall": 0.933333,
+            "f1-score": 0.958904,
+            "support": 150.0
+          },
+          "PortScan": {
+            "precision": 0.965517,
+            "recall": 0.933333,
+            "f1-score": 0.949153,
+            "support": 150.0
+          },
+          "Web Attack": {
+            "precision": 0.958333,
+            "recall": 0.92,
+            "f1-score": 0.938776,
+            "support": 150.0
+          },
+          "accuracy": 0.928889,
+          "macro avg": {
+            "precision": 0.938753,
+            "recall": 0.928889,
+            "f1-score": 0.93134,
+            "support": 900.0
+          },
+          "weighted avg": {
+            "precision": 0.938753,
+            "recall": 0.928889,
+            "f1-score": 0.93134,
+            "support": 900.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            142,
+            0,
+            2,
+            2,
+            0,
+            4
+          ],
+          [
+            11,
+            138,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            8,
+            2,
+            138,
+            0,
+            1,
+            1
+          ],
+          [
+            7,
+            0,
+            0,
+            140,
+            3,
+            0
+          ],
+          [
+            9,
+            0,
+            0,
+            0,
+            140,
+            1
+          ],
+          [
+            12,
+            0,
+            0,
+            0,
+            0,
+            138
+          ]
+        ],
+        "confusion_labels": [
+          "BENIGN",
+          "Brute Force",
+          "DDoS",
+          "DoS",
+          "PortScan",
+          "Web Attack"
+        ]
+      }
+    },
+    "logistic_regression": {
+      "test": {
+        "accuracy": 0.826667,
+        "precision_macro": 0.839195,
+        "recall_macro": 0.826667,
+        "f1_macro": 0.830153,
+        "precision_weighted": 0.839195,
+        "recall_weighted": 0.826667,
+        "f1_weighted": 0.830153,
+        "classification_report": {
+          "BENIGN": {
+            "precision": 0.525424,
+            "recall": 0.62,
+            "f1-score": 0.568807,
+            "support": 50.0
+          },
+          "Brute Force": {
+            "precision": 0.88,
+            "recall": 0.88,
+            "f1-score": 0.88,
+            "support": 50.0
+          },
+          "DDoS": {
+            "precision": 0.907407,
+            "recall": 0.98,
+            "f1-score": 0.942308,
+            "support": 50.0
+          },
+          "DoS": {
+            "precision": 0.95,
+            "recall": 0.76,
+            "f1-score": 0.844444,
+            "support": 50.0
+          },
+          "PortScan": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 50.0
+          },
+          "Web Attack": {
+            "precision": 0.87234,
+            "recall": 0.82,
+            "f1-score": 0.845361,
+            "support": 50.0
+          },
+          "accuracy": 0.826667,
+          "macro avg": {
+            "precision": 0.839195,
+            "recall": 0.826667,
+            "f1-score": 0.830153,
+            "support": 300.0
+          },
+          "weighted avg": {
+            "precision": 0.839195,
+            "recall": 0.826667,
+            "f1-score": 0.830153,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            31,
+            6,
+            2,
+            2,
+            3,
+            6
+          ],
+          [
+            6,
+            44,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            49,
+            0,
+            1,
+            0
+          ],
+          [
+            8,
+            0,
+            3,
+            38,
+            1,
+            0
+          ],
+          [
+            5,
+            0,
+            0,
+            0,
+            45,
+            0
+          ],
+          [
+            9,
+            0,
+            0,
+            0,
+            0,
+            41
+          ]
+        ],
+        "confusion_labels": [
+          "BENIGN",
+          "Brute Force",
+          "DDoS",
+          "DoS",
+          "PortScan",
+          "Web Attack"
+        ]
+      },
+      "train": {
+        "accuracy": 0.888889,
+        "precision_macro": 0.895028,
+        "recall_macro": 0.888889,
+        "f1_macro": 0.891209,
+        "precision_weighted": 0.895028,
+        "recall_weighted": 0.888889,
+        "f1_weighted": 0.891209,
+        "classification_report": {
+          "BENIGN": {
+            "precision": 0.686047,
+            "recall": 0.786667,
+            "f1-score": 0.732919,
+            "support": 150.0
+          },
+          "Brute Force": {
+            "precision": 0.924138,
+            "recall": 0.893333,
+            "f1-score": 0.908475,
+            "support": 150.0
+          },
+          "DDoS": {
+            "precision": 0.951724,
+            "recall": 0.92,
+            "f1-score": 0.935593,
+            "support": 150.0
+          },
+          "DoS": {
+            "precision": 0.952055,
+            "recall": 0.926667,
+            "f1-score": 0.939189,
+            "support": 150.0
+          },
+          "PortScan": {
+            "precision": 0.92517,
+            "recall": 0.906667,
+            "f1-score": 0.915825,
+            "support": 150.0
+          },
+          "Web Attack": {
+            "precision": 0.931034,
+            "recall": 0.9,
+            "f1-score": 0.915254,
+            "support": 150.0
+          },
+          "accuracy": 0.888889,
+          "macro avg": {
+            "precision": 0.895028,
+            "recall": 0.888889,
+            "f1-score": 0.891209,
+            "support": 900.0
+          },
+          "weighted avg": {
+            "precision": 0.895028,
+            "recall": 0.888889,
+            "f1-score": 0.891209,
+            "support": 900.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            118,
+            6,
+            6,
+            4,
+            8,
+            8
+          ],
+          [
+            14,
+            134,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            8,
+            2,
+            138,
+            0,
+            2,
+            0
+          ],
+          [
+            7,
+            2,
+            0,
+            139,
+            1,
+            1
+          ],
+          [
+            11,
+            1,
+            1,
+            1,
+            136,
+            0
+          ],
+          [
+            14,
+            0,
+            0,
+            1,
+            0,
+            135
+          ]
+        ],
+        "confusion_labels": [
+          "BENIGN",
+          "Brute Force",
+          "DDoS",
+          "DoS",
+          "PortScan",
+          "Web Attack"
+        ]
+      }
+    }
+  },
+  "feature_importance": {
+    "random_forest": {
+      "model": "random_forest",
+      "kind": "gini_importance",
+      "features": [
+        {
+          "feature": "Flow Bytes/s",
+          "value": 0.097044
+        },
+        {
+          "feature": "Total Length of Fwd Packets",
+          "value": 0.080428
+        },
+        {
+          "feature": "Total Fwd Packets",
+          "value": 0.079877
+        },
+        {
+          "feature": "Flow Duration",
+          "value": 0.076538
+        },
+        {
+          "feature": "Packet Length Std",
+          "value": 0.066558
+        },
+        {
+          "feature": "Fwd Packet Length Mean",
+          "value": 0.063392
+        },
+        {
+          "feature": "Fwd Packets/s",
+          "value": 0.059418
+        },
+        {
+          "feature": "ACK Flag Count",
+          "value": 0.05704
+        },
+        {
+          "feature": "Average Packet Size",
+          "value": 0.056889
+        },
+        {
+          "feature": "Down/Up Ratio",
+          "value": 0.049127
+        },
+        {
+          "feature": "Flow Packets/s",
+          "value": 0.044984
+        },
+        {
+          "feature": "Idle Mean",
+          "value": 0.043795
+        },
+        {
+          "feature": "RST Flag Count",
+          "value": 0.039331
+        },
+        {
+          "feature": "Destination Port",
+          "value": 0.032845
+        },
+        {
+          "feature": "Active Mean",
+          "value": 0.028947
+        },
+        {
+          "feature": "SYN Flag Count",
+          "value": 0.028155
+        },
+        {
+          "feature": "Total Backward Packets",
+          "value": 0.024791
+        },
+        {
+          "feature": "Flow IAT Mean",
+          "value": 0.018208
+        },
+        {
+          "feature": "Packet Length Mean",
+          "value": 0.014667
+        },
+        {
+          "feature": "Init_Win_bytes_forward",
+          "value": 0.006927
+        },
+        {
+          "feature": "Bwd Packet Length Mean",
+          "value": 0.005856
+        },
+        {
+          "feature": "Bwd Packets/s",
+          "value": 0.005652
+        },
+        {
+          "feature": "Total Length of Bwd Packets",
+          "value": 0.004978
+        },
+        {
+          "feature": "Fwd IAT Mean",
+          "value": 0.004669
+        },
+        {
+          "feature": "Init_Win_bytes_backward",
+          "value": 0.00466
+        },
+        {
+          "feature": "Bwd IAT Mean",
+          "value": 0.004404
+        },
+        {
+          "feature": "FIN Flag Count",
+          "value": 0.00082
+        }
+      ]
+    },
+    "logistic_regression": {
+      "model": "logistic_regression",
+      "kind": "normalized_mean_absolute_coefficient",
+      "features": [
+        {
+          "feature": "Flow Duration",
+          "value": 0.056335
+        },
+        {
+          "feature": "ACK Flag Count",
+          "value": 0.05611
+        },
+        {
+          "feature": "Fwd Packet Length Mean",
+          "value": 0.055188
+        },
+        {
+          "feature": "Destination Port",
+          "value": 0.054318
+        },
+        {
+          "feature": "Total Length of Fwd Packets",
+          "value": 0.051674
+        },
+        {
+          "feature": "Down/Up Ratio",
+          "value": 0.050716
+        },
+        {
+          "feature": "Flow Bytes/s",
+          "value": 0.04808
+        },
+        {
+          "feature": "SYN Flag Count",
+          "value": 0.047987
+        },
+        {
+          "feature": "Packet Length Std",
+          "value": 0.045636
+        },
+        {
+          "feature": "Fwd Packets/s",
+          "value": 0.044767
+        },
+        {
+          "feature": "Idle Mean",
+          "value": 0.04413
+        },
+        {
+          "feature": "Total Fwd Packets",
+          "value": 0.043947
+        },
+        {
+          "feature": "Average Packet Size",
+          "value": 0.043711
+        },
+        {
+          "feature": "Flow Packets/s",
+          "value": 0.041051
+        },
+        {
+          "feature": "Total Backward Packets",
+          "value": 0.038138
+        },
+        {
+          "feature": "Active Mean",
+          "value": 0.03501
+        },
+        {
+          "feature": "Flow IAT Mean",
+          "value": 0.033363
+        },
+        {
+          "feature": "RST Flag Count",
+          "value": 0.033146
+        },
+        {
+          "feature": "Init_Win_bytes_forward",
+          "value": 0.028106
+        },
+        {
+          "feature": "Bwd IAT Mean",
+          "value": 0.023861
+        },
+        {
+          "feature": "Bwd Packets/s",
+          "value": 0.022563
+        },
+        {
+          "feature": "Packet Length Mean",
+          "value": 0.021681
+        },
+        {
+          "feature": "Total Length of Bwd Packets",
+          "value": 0.021067
+        },
+        {
+          "feature": "Bwd Packet Length Mean",
+          "value": 0.01878
+        },
+        {
+          "feature": "Init_Win_bytes_backward",
+          "value": 0.018768
+        },
+        {
+          "feature": "Fwd IAT Mean",
+          "value": 0.011506
+        },
+        {
+          "feature": "FIN Flag Count",
+          "value": 0.010363
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Accuracy, precision, recall, and F1 are computed on a stratified held-out test split.",
+    "Train scores are stored only so overfitting can be inspected. The dashboard uses test scores.",
+    "The default dataset is synthetic. It is not the CIC-IDS2017 corpus.",
+    "Confidence values are maximum predicted-class probabilities, not calibrated certainties.",
+    "This system scores uploaded flow CSV files. It does not capture packets."
+  ]
+}
